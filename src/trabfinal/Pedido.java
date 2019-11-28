@@ -8,6 +8,7 @@ package trabfinal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Scanner;
 
 /**
  *
@@ -53,10 +54,18 @@ public class Pedido {
         this.cliente = cliente;
     }
 
+    //construtor
     public Pedido(long numero, Date data, Cliente cliente) {
         this.numero = numero;
         this.data = data;
         this.cliente = cliente;
+    }
+    
+   
+    
+    public void add_ItemPedido ()
+    {
+       // itens.add(new ItemPedido(numero,quantidade, produto));
     }
 
     @Override

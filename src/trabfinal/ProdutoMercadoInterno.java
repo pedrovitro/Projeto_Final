@@ -9,7 +9,7 @@ package trabfinal;
  *
  * @author pedro
  */
-public class ProdutoMercadoInterno {
+public class ProdutoMercadoInterno extends Produto{
     private boolean incentivo;
     
     
@@ -24,7 +24,8 @@ public class ProdutoMercadoInterno {
         this.incentivo = incentivo;
     }
 
-    public ProdutoMercadoInterno(boolean incentivo) {
+    public ProdutoMercadoInterno(boolean incentivo, int cod, String nome) {
+        super (cod, nome);
         this.incentivo = incentivo;
     }
 

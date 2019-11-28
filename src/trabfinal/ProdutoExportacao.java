@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author pedro
  */
-public class ProdutoExportacao {
+public class ProdutoExportacao extends Produto{
     private String destino;
     
     
@@ -25,7 +25,8 @@ public class ProdutoExportacao {
         this.destino = destino;
     }
 
-    public ProdutoExportacao(String destino) {
+    public ProdutoExportacao(String destino, int cod, String nome) {
+        super(cod, nome);
         this.destino = destino;
     }
 

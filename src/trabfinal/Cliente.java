@@ -126,6 +126,11 @@ public class Cliente {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "codigo=" + codigo + ", nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone + ", status=" + status + ", limite=" + limite + ", pedidos=" + pedidos + '}';
+    }
     
     
     

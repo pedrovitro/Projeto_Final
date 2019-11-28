@@ -13,14 +13,25 @@ import java.util.Objects;
  */
 public class Categoria {
     private String descricao;
+    private int codigo;
     
     
     
 
-    public Categoria(String descricao) {
+    public Categoria(String descricao, int codigo) {
         this.descricao = descricao;
+        this.codigo = codigo;
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    
     public String getDescricao() {
         return descricao;
     }

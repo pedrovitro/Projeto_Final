@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author pedro
  */
-public class Produto {
+public abstract class Produto {
     
     private int codigo;
     private String nome;
@@ -68,7 +68,7 @@ public class Produto {
         this.imposto = imposto;
     }
 
-    public Produto(int codigo, String nome, Categoria categoria, double preco, int moeda, double imposto) {
+    public Produto(int codigo, String nome) {
         this.codigo = codigo;
         this.nome = nome;
         
