@@ -29,7 +29,9 @@ public class TrabFinal {
         HashSet <Produto> produtos = new HashSet();
         HashSet <Categoria> categorias = new HashSet();
        
+        String mudança = "Deu certo";
         
+        System.out.println(mudança);
         
         System.out.println("1-Manutenção Cliente\n"//ok
                     + "2- Manutenção Produto\n"//ok
