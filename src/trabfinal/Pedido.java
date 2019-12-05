@@ -63,10 +63,6 @@ public class Pedido {
     
    
     
-    public void add_ItemPedido ()
-    {
-       // itens.add(new ItemPedido(numero,quantidade, produto));
-    }
 
     @Override
     public int hashCode() {
@@ -105,4 +101,19 @@ public class Pedido {
     {
         return 0;
     }
+
+    
+    public void MostrarPedido() {
+        System.out.println("Pedido{" + "numero=" + numero + ", data=" + data + '}');
+        
+        System.out.println("ITENS DO PEDIDO");
+        for(ItemPedido ip:itens)
+        {
+            System.out.println(" Numero: " + ip.getNumero() + " Produto: " + ip.getProduto().getNome() + " Quantidade: " + ip.getQuantidade());
+        }
+        
+    }
+    
+    
+    
 }

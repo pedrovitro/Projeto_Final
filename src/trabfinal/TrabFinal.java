@@ -5,6 +5,7 @@
  */
 package trabfinal;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -17,22 +18,23 @@ public class TrabFinal {
    
     public static void main(String[] args) {
         
-        int escolha = 0, escolha1 = 0;
-        int aux_cod, aux_cod1;
+        int escolha = 0, escolha1 = 0,teste = 0;
+        int aux_cod, aux_cod1,aux_cod2;
+        long cod_pedido = 0;
         int scan,scan1,scan2;
         double scanD;
         String scanS;
         boolean scanB;
+        
         String aux_nome;
         Scanner scanner = new Scanner(System.in);
         HashSet <Cliente> clientes = new HashSet();
         HashSet <Produto> produtos = new HashSet();
         HashSet <Categoria> categorias = new HashSet();
        
-        String mudança = "Deu certo";
         
-        System.out.println(mudança);
-        
+        do
+        {
         System.out.println("1-Manutenção Cliente\n"//ok
                     + "2- Manutenção Produto\n"//ok
                     + "3- Manutenção Categoria\n"//ok
@@ -44,9 +46,12 @@ public class TrabFinal {
         
                         scan = scanner.nextInt();
                         escolha = scan;
+        }while(escolha > 7);
         
-        if(escolha == 1)
+        if(escolha == 1)//manutenção cliente
         {
+            do
+            {
             System.out.println("QUAL TIPO DE MANUTENÇÃO PARA O CLIENTE:\n"
                     + "1- Criar\n"
                     + "2- Remover\n"
@@ -56,11 +61,14 @@ public class TrabFinal {
                     + "6- Sair\n" );
             
             
-                         scan2 = scanner.nextInt();
+                        scan2 = scanner.nextInt();
                         escolha1 = scan2;
-                        
+            }while(escolha1 > 7);         
                         if(escolha1 == 1)
                         {
+                            
+                            do
+                            {
                             System.out.println("CRIAR UM NOVO CLIENTE");
                             System.out.println("Digite o código do Cliente:");
                             scan1 = scanner.nextInt();
@@ -69,13 +77,26 @@ public class TrabFinal {
                             String scan3 = scanner.next();
                             aux_nome = scan3;
 
-                            clientes.add(new Cliente(aux_cod,aux_nome));
+                            for(Cliente c:clientes)
+                            {
+                                if(c.getCodigo() != aux_cod)
+                                  clientes.add(new Cliente(aux_cod,aux_nome)); 
+                                else
+                                {
+                                   System.out.println("CÓDIGO DO CLIENTE JÁ EXISTENTE");   
+                                   teste = 1;
+                                }
+                            }
+                            }while(teste == 1);
+                            
                             
                             
                             
                         }if(escolha1 == 2)
                         {
-                            
+                           teste = 0; 
+                           do
+                           {
                           System.out.println("Digite o código do Cliente a ser removido:");
                             scan1 = scanner.nextInt();
                             aux_cod = scan1;  
@@ -85,9 +106,14 @@ public class TrabFinal {
                                 if(a.getCodigo() == aux_cod)
                                 {
                                     clientes.remove(a);
+                                }else
+                                {
+                                    System.out.println("CÓDIGO DO CLIENTE NAO ENCONTRADO");  
+                                    teste = 1;
                                 }
                                 
                             }
+                           }while(teste == 1);
                             
                             
                             
@@ -101,7 +127,8 @@ public class TrabFinal {
                             {
                                 if(a.getCodigo() == aux_cod)
                                 {
-                                    
+                                    do
+                                    {
                                     System.out.println("O QUE DESEJA ALTERAR:\n"
                                         + "1- Nome\n"
                                         + "2- Endereço\n"
@@ -111,7 +138,7 @@ public class TrabFinal {
                                     
                                     scan2 = scanner.nextInt();
                                     escolha1 = scan2;
-                                        
+                                    }while(escolha1 > 5);    
                                         if(escolha1 == 1)
                                             {
                                                 System.out.println("Digite o novo nome:\n");
@@ -185,9 +212,11 @@ public class TrabFinal {
                             //colocar alguma coisa pra voltar pro menu
                             //se tiver o do while isso nao precisas
                         }
-            
-        }if(escolha == 2)
+            //fim manutençaõ cliente
+        }if(escolha == 2)//manutençao produto
         {
+            do
+            {
             System.out.println("QUAL TIPO DE MANUTENÇÃO PARA O PRODUTO:\n"
                     + "1- Criar\n"
                     + "2- Remover\n"
@@ -199,7 +228,7 @@ public class TrabFinal {
             
                          scan2 = scanner.nextInt();
                         escolha1 = scan2;
-                        
+            }while(escolha1 > 6);           
                         if(escolha1 == 1)
                         {
                           System.out.println("CRIAR UM NOVO PRODUTO");
@@ -259,7 +288,8 @@ public class TrabFinal {
                             {
                                 if(a.getCodigo() == aux_cod)
                                 {
-                                    
+                                    do
+                                    {
                                     System.out.println("O QUE DESEJA ALTERAR:\n"
                                         + "1- Nome\n"
                                         + "2- Categoria\n"
@@ -269,7 +299,8 @@ public class TrabFinal {
                                     
                                     scan2 = scanner.nextInt();
                                     escolha1 = scan2;
-                                        
+                                    }while(escolha1 > 5);
+                                    
                                         if(escolha1 == 1)
                                             {
                                                 System.out.println("Digite o novo nome:\n");
@@ -350,9 +381,11 @@ public class TrabFinal {
                             //break;
                             //colocar alguma coisa pra voltar pro menu
                         }
-            
-        }if(escolha == 3)//categoria
+            //fim manuntenção produto
+        }if(escolha == 3)//manitençao categoria
         {
+            do
+            {
             System.out.println("QUAL TIPO DE MANUTENÇÃO PARA A CATEGORIA:\n"
                     + "1- Criar\n"
                     + "2- Remover\n"
@@ -364,7 +397,7 @@ public class TrabFinal {
             
                          scan2 = scanner.nextInt();
                         escolha1 = scan2;
-                        
+            }while(escolha1 > 6);            
                         if(escolha1 == 1)
                         {
                             System.out.println("CRIAR UMA NOVA CATEGORIA");
@@ -450,34 +483,86 @@ public class TrabFinal {
                             //colocar alguma coisa pra voltar pro menu
                             //se tiver o do while isso nao precisas
                         }
+         //fim manutenção mcategoria               
         }if(escolha == 4)
         {
-     //1-criar o pedido
-     //2- associar o pedido ao cliente
- 
             
-            
-        System.out.println("Informe a quantidade do pedido\n");
-         scan = scanner.nextInt();
-         aux_cod = scan;
-          
-        System.out.println("Informe o codigo do produto\n");
+        System.out.println("Informe o código do cliente\n");
         scan = scanner.nextInt();
-        aux_cod1 = scan;
+        aux_cod = scan;
         
-        
-        
-        }if(escolha == 5)
+        for (Cliente c:clientes)
         {
-            //listra pedidos
             
-        }if(escolha == 6)
-        {
-           //dar baixa 
+            if(aux_cod == c.getCodigo())
+            {
+                do                   
+                {
+                System.out.println("Informe o codigo do produto\n");
+                scan = scanner.nextInt();
+                aux_cod2 = scan;
+                
+                for(Produto pr: produtos)
+                {
+                    if(aux_cod2 == pr.getCodigo())
+                    {
+                        
+                        System.out.println("Informe a quantidade do pedido\n");
+                        scan = scanner.nextInt();
+                        aux_cod1 = scan;
+
+                        System.out.println("Informe a data do pedido\n");
+                        scan = scanner.nextInt();
+                        aux_cod1 = scan;
+
+
+                        Pedido p = new Pedido(cod_pedido++,new Date(System.currentTimeMillis()) ,c);                
+                        c.addPedidos(p);
+
+
+                        ItemPedido it = new ItemPedido(p.getItens().size(),aux_cod1,pr);
+                        p.addItens(it);
+                        
+                        System.out.println("Deseja adicionar mais um produto?\n[1] - SIM [2] - NAO\n");
+                        escolha1 = scanner.nextInt();                      
+                        
+                    }
+                    }
+                }while(escolha1 != 2);
+               }
+            }
         }
-    }
+            if(escolha == 5)
+               {
+                System.out.println("Informe o código do cliente\n");
+                scan = scanner.nextInt();
+                aux_cod = scan;
+
+                for (Cliente c:clientes)
+                {
+                    if(aux_cod == c.getCodigo())
+                    {
+
+                        for(Pedido p:c.getPedidos())
+                        {
+                            p.MostrarPedido();
+                        }
+                    }
+                }
+
+               }
+            if(escolha == 6)
+               {
+                   //dar baixa 
+               }
+        
+         }
+        }
     
-}
+    
+
+
+
 
 //falta fazer:
 //mudar os metodos pra exibir/receber os array - feito
