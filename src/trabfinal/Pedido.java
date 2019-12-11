@@ -21,6 +21,15 @@ public class Pedido {
     private ArrayList <ItemPedido> itens = new ArrayList();
     //array pode ser qualquer coisa
     private Cliente cliente;
+    private boolean baixado = false;
+
+    public boolean getBaixado() {
+        return baixado;
+    }
+
+    public void setBaixado(boolean baixado) {
+        this.baixado = baixado;
+    }
 
     public long getNumero() {
         return numero;
@@ -104,7 +113,7 @@ public class Pedido {
 
     
     public void MostrarPedido() {
-        System.out.println("Pedido{" + "numero=" + numero + ", data=" + data + '}');
+        System.out.println("Pedido{" + "numero=" + numero + ", data=" + data + " ,baixado=" + baixado +'}');
         
         System.out.println("ITENS DO PEDIDO");
         for(ItemPedido ip:itens)

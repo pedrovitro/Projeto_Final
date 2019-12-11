@@ -79,9 +79,10 @@ public class Cliente {
         this.pedidos.add(pedidos);
     }
 
-    public Cliente(int codigo, String nome) {
+    public Cliente(int codigo, String nome, Double limite) {
         this.codigo = codigo;
         this.nome = nome;
+        this.limite = limite;
     }
 
     public Cliente(int codigo, String nome, String endereco, String telefone, int status, double limite) {

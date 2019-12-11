@@ -72,6 +72,6 @@ public class ItemPedido {
     
         public double totalItem ()
         {
-            return 0;
+            return produto.getPreco() * quantidade;
         }
 }
